@@ -4,3 +4,11 @@ sudo systemctl enable pcscd
 sudo systemctl start pcscd
 sudo dnf -y install pcsc-tools
 sudo dnf -y install python3-pyscard wget
+
+#pcsc_scan only working as root
+pip install bidict
+pip install construct
+pip install gsm0338
+pip install cmd2
+pip install jsonpath_ng
+pip install pytlv
