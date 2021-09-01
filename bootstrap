@@ -1,1 +1,6 @@
 sudo dnf -y install git usbutils buildah podman
+sudo dnf -y install pcsc-lite
+sudo systemctl enable pcscd
+sudo systemctl start pcscd
+sudo dnf -y install pcsc-tools
+sudo dnf -y install python3-pyscard wget

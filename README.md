@@ -28,8 +28,27 @@ This repo details how to program sysmoISIM-SJA2 cards.
 
 ## Steps
 
-TBA
+TBA 
 
 ## Troubleshooting
 
-TBA
+* Submit the SIM card type to the database if it does not exist. The first `pcsc_scan` output:
+
+```console
+Possibly identified card (using /root/.cache/smartcard_list.txt):
+	NONE
+
+Your card is not present in the database.
+Please submit your unknown card at:
+https://smartcard-atr.apdu.fr/parse?ATR=3B9F96801F878031E073FE211B674A4C753034054BA9
+http://ludovic.rousseau.free.fr/softwares/pcsc-tools/smartcard_list.txt
+```
+
+* After submitting the unknown card as indicated and attempting again:
+
+```
+pcsc_scan
+Possibly identified card (using /root/.cache/smartcard_list.txt):
+3B 9F 96 80 1F 87 80 31 E0 73 FE 21 1B 67 4A 4C 75 30 34 05 4B A9
+	Test Card (Telecommunication)
+```
