@@ -28,7 +28,19 @@ This repo details how to program sysmoISIM-SJA2 cards.
 
 ## Steps
 
-TBA 
+```console
+vagrant up --provider=libvirt
+```
+
+* Assure polkitd guarantess acces to the user. [polkitd](https://access.redhat.com/blogs/766093/posts/1976313)
+
+```console
+pcsc_scan
+```
+
+```console
+pySim -p0
+```
 
 ## Troubleshooting
 

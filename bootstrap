@@ -12,3 +12,8 @@ pip install gsm0338
 pip install cmd2
 pip install jsonpath_ng
 pip install pytlv
+
+#replace use sed to change `authadmin` replaced by `yes` in file
+#/usr/share/polkit-1/actions/org.debian.pcsc-lite.policy
+
+sudo systemctl restart polkit
