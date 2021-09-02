@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+HERE=$(dirname "$(readlink --canonicalize "$BASH_SOURCE")")
+
+if [ "$1" == -c ]; then
+    echo 'cleaning up...'
+    rm --recursive --force "$HERE/work"
+fi
+
+if [ ! -d "$HERE/work" ]; then
+    mkdir --parents  "$HERE/work"
+fi
+echo 'cloning repository...'
+
+git clone https://github.com/osmocom/pysim.git "$HERE/work/pysim" \
+    --recursive \
+    --depth 1
