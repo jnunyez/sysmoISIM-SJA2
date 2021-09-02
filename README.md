@@ -28,18 +28,44 @@ This repo details how to program sysmoISIM-SJA2 cards.
 
 ## Steps
 
+* Connect USB smart card reader with the sysmoISIM-SJA2 in the SIM slot.
+
+* Get vendor and product id of your USB smart card reader. To get vendor and product id run the following command from your host with USB smart card reader connected:
+
 ```console
-vagrant up --provider=libvirt
+lsusb
 ```
 
-* Assure polkitd guarantess acces to the user. [polkitd](https://access.redhat.com/blogs/766093/posts/1976313)
+
+* Provision sim-programmer VM. Note that 1) the `Vagrantfile` requires to activate USB port passthrough to detect the USB smart card reader and 2) we embed the VENDOR and PRODUCT IDs of the USB smart card reader.
+
+```console
+VENDOR=Oxaaaa PRODUCT=0xbbbb vagrant up --provider=libvirt vagrant up --provider=libvirt
+```
+
+* Go to the VM:
+
+```console
+vagrant ssh
+```
+
+* Scan the USB port for a smart card reader:
 
 ```console
 pcsc_scan
 ```
 
+* Get latest sysmocom sw and read/program the SIM:
+
 ```console
-pySim -p0
+pySim-read.py -p0
+Using PC/SC reader interface
+Reading ...
+Autodetected card type: sysmoISIM-SJA2
+ICCID: 8988211000000529894
+IMSI: 901700000052989
+GID1: ffffffffffffffffffff
+GID2: fffffffffffffffffff
 ```
 
 ## Troubleshooting
@@ -58,9 +84,11 @@ http://ludovic.rousseau.free.fr/softwares/pcsc-tools/smartcard_list.txt
 
 * After submitting the unknown card as indicated and attempting again:
 
-```
+```console
 pcsc_scan
 Possibly identified card (using /root/.cache/smartcard_list.txt):
 3B 9F 96 80 1F 87 80 31 E0 73 FE 21 1B 67 4A 4C 75 30 34 05 4B A9
 	Test Card (Telecommunication)
 ```
+
+* Assure polkitd guarantess acces to any user. See [here](https://access.redhat.com/blogs/766093/posts/1976313)
