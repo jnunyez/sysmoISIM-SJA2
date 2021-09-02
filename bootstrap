@@ -1,9 +1,10 @@
 sudo dnf -y install git usbutils pcsc-lite
 sudo systemctl enable pcscd
 sudo systemctl start pcscd
-sudo dnf -y install pcsc-tools python3-pyscard wget
+#python3-yaml already installed
+sudo dnf -y install pcsc-tools python3-pyscard python3-yaml wget
 
-#pip modules
+#pip modules pyserial should be already installed
 pip install bidict
 pip install construct
 pip install gsm0338
