@@ -36,6 +36,11 @@ This repo details how to program sysmoISIM-SJA2 cards.
 lsusb
 ```
 
+* Get pySim code to program and read SIMs
+
+```console
+get_pysim
+```
 
 * Provision sim-programmer VM. Note that 1) the `Vagrantfile` requires to activate USB port passthrough to detect the USB smart card reader and 2) we embed the VENDOR and PRODUCT IDs of the USB smart card reader.
 
@@ -43,7 +48,9 @@ lsusb
 VENDOR=Oxaaaa PRODUCT=0xbbbb vagrant up --provider=libvirt vagrant up --provider=libvirt
 ```
 
-* Go to the VM:
+* Get pySim code
+
+* Launch and access the VM:
 
 ```console
 vagrant ssh
