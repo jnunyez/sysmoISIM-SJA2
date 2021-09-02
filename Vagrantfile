@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
       libvirt.cpus = 2
       libvirt.memory = 2048
       #class 0x0b vendor  0x0bda product 0x0169
+      libvirt.usb_controller :model => "nec-xhci"
       libvirt.usb :vendor => vendor, :product => product
     end
     config.vm.provision :shell, path: "bootstrap"
