@@ -320,7 +320,7 @@ ISIM Service Table: 190200
 Done !
 ```
 
-Now we change current values of MCC=901,MNC=70 to MCC=000,MNC=01. To program any field we need the enter the pin-adm value for that card (ping-adm). Output should look like:
+SIMs come pre-provisioninged with 90170 as PLMN with adm keys. Now we change current values of MCC=901,MNC=70 to MCC=000,MNC=01 using these adm keys. To program any field we need the enter the pin-adm value for that card (ping-adm). Output should look like:
 
 ```
 ./pySim-prog.py -p 0 --type sysmoISIM-SJA2 --pin-adm=70725779 --mcc=001 --mnc=01 --imsi=901700000052989  --iccid=8988211000000529894 --opc=2987D4644B7E7D87162C1BCB48AB7C38 --ki=06D6D6903001C2058E7C386E138EFBA5
@@ -342,7 +342,7 @@ Warning: Programming of the ICCID is not implemented for this type of card.
 Programming successful: Remove card from reader
 ```
 
-Change the IMSI as well:
+We change the IMSI as well since usually first five digits correspond to the PLMN that we just changed:
 
 ```
 ./pySim-prog.py -p 0 --type sysmoISIM-SJA2 --pin-adm=70725779 --mcc=001 --mnc=01 --imsi=001010000052989  --iccid=8988211000000529894 --opc=2987D4644B7E7D87162C1BCB48AB7C38 --ki=06D6D6903001C2058E7C386E138EFBA5
