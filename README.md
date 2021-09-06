@@ -364,7 +364,7 @@ Warning: Programming of the ICCID is not implemented for this type of card.
 Programming successful: Remove card from reader
 ```
 
-* You can also use interactive python pysim-Shell based on `cmd2` python module to build CLI/shell interfaces: 
+* You can also use interactive python pysim-Shell based on `cmd2` python module to build CLI/shell interfaces. An intro to pysim shell [here](https://people.osmocom.org/tnt/osmodevcall/osmodevcall-20210409-laforge-pysim-shell_h264_420.mp4) 
 
 ```
  ./pySim-shell.py -p 0
