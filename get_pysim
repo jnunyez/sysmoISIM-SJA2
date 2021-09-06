@@ -16,3 +16,5 @@ echo 'cloning repository...'
 git clone https://github.com/osmocom/pysim.git "$HERE/work/pysim" \
     --recursive \
     --depth 1
+
+cd "$HERE/work/pysim" && pip install -r requirements.txt
