@@ -16,3 +16,5 @@ pip install pytlv
 #/usr/share/polkit-1/actions/org.debian.pcsc-lite.policy
 sudo  sed -i 's/auth_admin/yes/g' /usr/share/polkit-1/actions/org.debian.pcsc-lite.policy 
 sudo systemctl restart polkit
+
+cd "/vagrant/work/pysim" && pip install -r requirements.txt

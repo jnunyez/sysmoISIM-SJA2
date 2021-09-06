@@ -35,7 +35,7 @@ This repo details how to program sysmoISIM-SJA2 cards.
   lsusb
   ```
 
-* Get pySim code to program and read SIMs
+* Get pySim code:
   ```shell
   get_pysim
   ```
@@ -362,4 +362,17 @@ Generated card parameters :
 Programming ...
 Warning: Programming of the ICCID is not implemented for this type of card.
 Programming successful: Remove card from reader
+```
+
+* You can also use interactive python pysim-Shell based on `cmd2` python module to build CLI/shell interfaces: 
+
+```
+ ./pySim-shell.py -p 0
+Using PC/SC reader interface
+Autodetected card type: sysmoISIM-SJA2
+AIDs on card:
+ USIM: a0000000871002ffffffff8907090000
+ ISIM: a0000000871004ffffffff8907090000
+Welcome to pySim-shell!
+pySIM-shell (MF)>
 ```
