@@ -4,17 +4,9 @@ sudo systemctl start pcscd
 #python3-yaml already installed
 sudo dnf -y install pcsc-tools python3-pyscard python3-yaml wget
 
-#pip modules pyserial should be already installed
-pip install bidict
-pip install construct
-pip install gsm0338
-pip install cmd2
-pip install jsonpath_ng
-pip install pytlv
-
 #replace use sed to change `authadmin` replaced by `yes` in file
 #/usr/share/polkit-1/actions/org.debian.pcsc-lite.policy
 sudo  sed -i 's/auth_admin/yes/g' /usr/share/polkit-1/actions/org.debian.pcsc-lite.policy 
 sudo systemctl restart polkit
 
-cd "/vagrant/work/pysim" && pip install -r requirements.txt
+pip install --user -r /vagrant/work/pysim/requirements.txt
