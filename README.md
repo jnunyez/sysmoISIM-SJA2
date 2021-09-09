@@ -383,3 +383,5 @@ AIDs on card:
 Welcome to pySim-shell!
 pySIM-shell (MF)>
 ```
+
+* An example for enabling SUPI concealment for 5G-SA networks can be found [here](examples/5gpysimshell.md)
