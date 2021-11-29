@@ -49,7 +49,7 @@ In the VM running the sim-programmer `psym` is needed:
 
 * Provision sim-programmer VM with Vagrant. Note that the `Vagrantfile` requires to activate USB port passthrough to detect the USB smart card reader. To attach specific USB port we specify the vendor and product ids of the USB smart card reader. And we require to specify a high-speed USB controller for pysim to interact with the USB smart cart reader, as the default configuration only exposes a USB1.1 controller.
   ```shell
-  VENDOR="0x0xbda" PRODUCT="0x0169" MODEL="nec-xhci" vagrant up --provider=libvirt
+  VENDOR="0xbda" PRODUCT="0x0169" MODEL="nec-xhci" vagrant up --provider=libvirt
   ```
 
 * Launch and access the VM:
@@ -64,7 +64,8 @@ In the VM running the sim-programmer `psym` is needed:
 
 * Get latest sysmocom sw and read/program the SIM:
   ```shell
-  cd /vagrant/pysim
+  cd /vagrant/work/pysim
+  pip install -r requirements.txt
   pySim-read.py -p 0
   ```
 
@@ -385,3 +386,8 @@ pySIM-shell (MF)>
 ```
 
 * An example for enabling SUPI concealment for 5G-SA networks can be found [here](examples/5gpysimshell.md)
+
+## Inventory
+
+An inventory of SIM testing cards can be found [here](inventory/inventory.md).
+
