@@ -19,14 +19,16 @@ This repo details how to program sysmoISIM-SJA2 cards.
 
 ![SIM Reader](./images/reader.png)
 
-## Linux 
 
+## Linux 
 
 In your Linux host install `vagrant` and `vagrant-libvirt` plugin:
 
 * [vagrant installation instructions](https://www.vagrantup.com/downloads)
 
 * [vagrant-libvirt installation instructions](https://github.com/jnunyez/vagrant-libvirt#possible-problems-with-plugin-installation-on-linux)
+
+* In RHEL 8.4 this [issue](https://github.com/vagrant-libvirt/vagrant-libvirt/issues/1203) required `libk5crypto`  to be installed from sources in `/opt/vagrant/embedded/lib64` following the steps indicated in [here](https://github.com/vagrant-libvirt/vagrant-libvirt#additional-notes-for-fedora-and-similar-linux-distributions)
 
 
 In the VM running the sim-programmer `psym` is needed:
