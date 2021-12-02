@@ -19,7 +19,8 @@ This repo details how to program sysmoISIM-SJA2 cards.
 
 ![SIM Reader](./images/reader.png)
 
-## Software Needed
+## Linux 
+
 
 In your Linux host install `vagrant` and `vagrant-libvirt` plugin:
 
@@ -33,7 +34,7 @@ In the VM running the sim-programmer `psym` is needed:
 * [pysim code](https://github.com/osmocom/pysim)
 
 
-## Steps
+### Steps
 
 * Connect USB smart card reader with the sysmoISIM-SJA2 in the SIM slot.
 
@@ -68,6 +69,62 @@ In the VM running the sim-programmer `psym` is needed:
   pip install -r requirements.txt
   pySim-read.py -p 0
   ```
+
+## Mac
+
+In MacOS connect the USB card to the laptop.
+
+* Connect USB smart card reader with the sysmoISIM-SJA2 in the SIM slot.
+
+* Get last pysim sw and install requirements:
+
+```console
+git clone https://github.com/osmocom/pysim.git
+pip install -r requirements.txt
+```
+
+* Test the card is detected using MUSCLE PC/SC Lite Test Program and supply the reader number:
+	
+```console
+pcsctest
+MUSCLE PC/SC Lite Test Program
+
+Testing SCardEstablishContext    : Command successful.
+Testing SCardGetStatusChange 
+Please insert a working reader   : Command successful.
+Testing SCardListReaders         : Command successful.
+Reader 01: Generic USB2.0-CRW
+Enter the reader number          : 01
+Waiting for card insertion         
+                                 : Command successful.
+Testing SCardConnect             : Command successful.
+Testing SCardStatus              : Command successful.
+Current Reader Name              : Generic USB2.0-CRW
+Current Reader State             : 0x54
+Current Reader Protocol          : 0x0
+Current Reader ATR Size          : 22 (0x16)
+Current Reader ATR Value         : 3B 9F 96 80 1F 87 80 31 E0 73 FE 21 1B 67 4A 4C 75 30 34 05 4B A9 
+Testing SCardDisconnect          : Command successful.
+Testing SCardReleaseContext      : Command successful.
+Testing SCardEstablishContext    : Command successful.
+Testing SCardGetStatusChange 
+Please insert a working reader   : Command successful.
+Testing SCardListReaders         : Command successful.
+Reader 01: Generic USB2.0-CRW
+Waiting for card insertion         
+                                 : Command successful.
+Testing SCardConnect             : Command successful.
+Testing SCardStatus              : Command successful.
+Current Reader Name              : Generic USB2.0-CRW
+Current Reader State             : 0x54
+Current Reader Protocol          : 0x0
+Current Reader ATR Size          : 22 (0x16)
+Current Reader ATR Value         : 3B 9F 96 80 1F 87 80 31 E0 73 FE 21 1B 67 4A 4C 75 30 34 05 4B A9 
+Testing SCardDisconnect          : Command successful.
+Testing SCardReleaseContext      : Command successful.
+
+PC/SC Test Completed Successfully !
+```
 
 ## Troubleshooting
 
